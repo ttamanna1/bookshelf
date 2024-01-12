@@ -1,5 +1,5 @@
 from .common import BookSerializer
-
+from genres.serializers.common import GenreSerializer
 
 class PopulatedBookSerializer(BookSerializer):
-  pass
+  genres = GenreSerializer(many=True)
