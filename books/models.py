@@ -4,7 +4,7 @@ from django.db import models
 class Book(models.Model):
   title = models.CharField(max_length=300)
   author = models.CharField(max_length=300)
-  publication_date = models.PositiveIntegerField()
+  publication_year = models.PositiveIntegerField()
   genres = models.CharField(max_length=300)
   image = models.CharField(max_length=1000)
   owner = models.ForeignKey(
@@ -15,4 +15,4 @@ class Book(models.Model):
   )
 
   def __str__(self):
-    return f'{self.title} ({self.publication_date}) - Author: {self.author}'
+    return f'{self.title} ({self.publication_year}) - Author: {self.author}'

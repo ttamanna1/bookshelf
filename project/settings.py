@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'bookshelf',
+    'NAME': env('DB_NAME'),
     'USER': env('DB_USER'),
     'PASSWORD': env('DB_PASSWORD'),
     'HOST': env('DB_HOST'),
@@ -126,6 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# This setting tells django which model class we intend to use for authentication for our app
 AUTH_USER_MODEL = 'users.User'
 
 # Internationalization
