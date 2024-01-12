@@ -1,0 +1,51 @@
+[
+{
+  "model": "genres.genre",
+  "pk": 1,
+  "fields": {
+    "name": "Children's novel"
+  }
+},
+{
+  "model": "genres.genre",
+  "pk": 2,
+  "fields": {
+    "name": "Fantasy"
+  }
+},
+{
+  "model": "genres.genre",
+  "pk": 3,
+  "fields": {
+    "name": "Epic"
+  }
+},
+{
+  "model": "genres.genre",
+  "pk": 4,
+  "fields": {
+    "name": "Thriller"
+  }
+},
+{
+  "model": "genres.genre",
+  "pk": 5,
+  "fields": {
+    "name": "Self-help"
+  }
+},
+{
+  "model": "genres.genre",
+  "pk": 6,
+  "fields": {
+    "name": "High Fantasy"
+  }
+},
+{
+  "model": "genres.genre",
+  "pk": 7,
+  "fields": {
+    "name": "Novel"
+  }
+}
+]

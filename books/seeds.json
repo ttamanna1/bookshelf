@@ -1,0 +1,50 @@
+[
+{
+  "model": "books.book",
+  "pk": 1,
+  "fields": {
+    "title": "The Story Of Tracy Beaker",
+    "author": "Jacqueline Wilson",
+    "publication_year": 1991,
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/3f/Tracybeaker.jpg",
+    "owner": 2,
+    "genres": [
+      1
+    ]
+  }
+},
+{
+  "model": "books.book",
+  "pk": 2,
+  "fields": {
+    "title": "The Hobbit",
+    "author": "JRR Tolkien",
+    "publication_year": 1937,
+    "image": "https://m.media-amazon.com/images/I/51gFkMOpo+L.jpg",
+    "owner": 2,
+    "genres": [
+      2,
+      3,
+      6,
+      7
+    ]
+  }
+},
+{
+  "model": "books.book",
+  "pk": 3,
+  "fields": {
+    "title": "Harry Potter And The Philosopher's Stone",
+    "author": "J.K. Rowling",
+    "publication_year": 1997,
+    "image": "https://m.media-amazon.com/images/I/818FB6bF4aL._AC_UF894,1000_QL80_.jpg",
+    "owner": 2,
+    "genres": [
+      1,
+      2,
+      6,
+      7
+    ]
+  }
+}
+]
