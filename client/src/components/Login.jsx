@@ -10,7 +10,7 @@ export default function Login() {
   useEffect(() => {
     if (res?.status === 202){
       setToken(res.data.token)
-      navigate('/recipes')
+      navigate('/wishlist')
     }
   }, [res, navigate])
 

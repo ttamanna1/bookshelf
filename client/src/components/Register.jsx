@@ -26,5 +26,5 @@ export default function Register() {
         {res && <p className="danger">{res.data.message}</p>}
       </Form>
     </>
-  );
+  )
 }
