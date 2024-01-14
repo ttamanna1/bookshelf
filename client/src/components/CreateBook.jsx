@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
-import { Form, useActionData, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from "react"
+import { Form, useActionData, useLoaderData, useNavigate } from 'react-router-dom'
 import axios from "axios"
 
+
 export default function CreateBook() {
+  const genres = useLoaderData()
   const res = useActionData()
   const navigate = useNavigate()
+  const [errorMessage, setErrorMessage] = useState('')
 
   useEffect(() => {
 
@@ -21,24 +24,6 @@ export default function CreateBook() {
     image: '',
     genres: '',
   })
-
-  const [availableGenres, setAvailableGenres] = useState([])
-
-  // Fetch available genres on component mount
-  useEffect(() => {
-    const fetchGenres = async () => {
-      try {
-        const response = await axios.get('/api/genres')
-        setAvailableGenres(response.data)
-      } catch (error) {
-        console.error('Error fetching genres:', error)
-      }
-    }
-    fetchGenres()
-  }, [])
-
-  const [setErrorMessage] = useState('')
-
   
 
   function handleChange(e) {
@@ -57,9 +42,26 @@ export default function CreateBook() {
     }
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await axios.post('/api/books/', formData)
+      if (response.status === 201) {
+        console.log('Book created successfully:', response.data)
+        navigate(`/books/${response.data.id}`)
+      } else {
+        console.error('Failed to create book:', response.data)
+        setErrorMessage('Failed to create book. Please try again.')
+      }
+    } catch (error) {
+      console.error('Error creating book:', error)
+      setErrorMessage('Failed to create book. Please try again.')
+    }
+  }
+
   return (
     <>
-      <Form method="post" className="createform" >
+      <Form method="post" className="createform" onSubmit={handleSubmit} >
         <div className="formstlying">
 
           <label hidden htmlFor="title"></label>
@@ -77,7 +79,7 @@ export default function CreateBook() {
           <label hidden htmlFor="genres"></label>
           <select className="" name="genres" onChange={handleChange} value={formData.genres} >
             <option value=''>Select Genre</option>
-            {availableGenres.map((genre) => (
+            {genres.map((genre) => (
               <option key={genre.id} value={genre.name}>
                 {genre.name}
               </option>
@@ -93,7 +95,7 @@ export default function CreateBook() {
           </div><br />
 
           {res && <p className="dangerincreate">{res.data.message}</p>}
-
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>
 
       </Form>
