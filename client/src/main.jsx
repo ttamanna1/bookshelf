@@ -17,6 +17,7 @@ import CreateBook from './components/CreateBook'
 import EditBook from './components/EditBook'
 import Register from './components/Register'
 import Login from './components/Login'
+import { getAllBooks } from './utilities/loaders/books'
 
 const router = createBrowserRouter([
   {
@@ -38,15 +39,18 @@ const router = createBrowserRouter([
       },
       {
         path: '/wishlist',
-        element: <Wishlist />
+        element: <Wishlist />,
+        loader: getAllBooks
       },
       {
         path: '/currently-reading',
-        element: <CurrentlyReading />
+        element: <CurrentlyReading />,
+        loader: getAllBooks
       },
       {
         path: '/finished',
-        element: <Finished />
+        element: <Finished />,
+        loader: getAllBooks
       },
       {
         path: '/books/create',
