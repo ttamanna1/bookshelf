@@ -8,7 +8,7 @@ export default function Login() {
   const navigate = useNavigate()
   
   useEffect(() => {
-    if (res?.status === 202){
+    if (res?.status === 200){
       setToken(res.data.token)
       navigate('/wishlist')
     }
@@ -17,7 +17,7 @@ export default function Login() {
   return (
     <>
       <Form className='login-form' method="POST">
-        <input type="email" name="email" placeholder='Email' /><br/ >
+        <input type="text" name="username" placeholder='Username' /><br/ >
         <input type="password" name="password" placeholder="Password" /><br /><br />
         <button className='reg-login-btn' type="submit">Login</button><br /><br />
         {res && <p className='danger'>{res.data.message}</p>}
