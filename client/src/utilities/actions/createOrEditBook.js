@@ -3,7 +3,7 @@ import { getToken } from '../helpers/common'
 
 export async function bookCreate(request){
   const data = await formToObj(request)
-  return await axios.post('/api/books', data, {
+  return await axios.post('/api/books/', data, {
     validateStatus: () => true,
     headers:{
       Authorization:`Bearer ${getToken()}`

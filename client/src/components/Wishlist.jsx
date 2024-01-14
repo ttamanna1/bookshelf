@@ -1,6 +1,8 @@
 
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+// import { getToken } from '../utilities/helpers/common'
 
 
 
@@ -23,7 +25,6 @@ export default function Wishlist() {
     }
     fetchData()
   }, [])
-  
 
   const handleMoveToCategory = async (bookId, newCategory) => {
     try {
@@ -38,7 +39,7 @@ export default function Wishlist() {
   return (
     <div>
       <h1>Wishlist</h1>
-      <button>Add to Wishlist</button>
+      <Link to='/books/create'>Add to Wishlist</Link>
       <ul>
         {books.map((book) => (
           <li key={book.id}>
@@ -50,6 +51,5 @@ export default function Wishlist() {
       </ul>
     </div>
   )
-
 
 }
