@@ -1,14 +1,28 @@
-import { useLoaderData } from 'react-router-dom'
-import { useState } from 'react'
+
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 
 
 export default function Wishlist() {
-  const booklist = useLoaderData()
 
   //! State
-  const [books, setBooks] = useState(booklist || [])
+  const [books, setBooks] = useState( [])
+
+  //! Effects
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/api/books/?status=wishlist')
+        if (!response.ok) {
+          throw new Error('Failed to fetch wishlist data')
+        }
+      } catch (error) {
+        console.error('Error fetching wishlist:', error)
+      }
+    }
+    fetchData()
+  }, [])
   
 
   const handleMoveToCategory = async (bookId, newCategory) => {

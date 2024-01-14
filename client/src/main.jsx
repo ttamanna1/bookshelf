@@ -35,7 +35,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/books',
-        element: <BookIndex />
+        element: <BookIndex />,
+        loader: getAllBooks
       },
       {
         path: '/books/:bookId',
@@ -44,18 +45,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/wishlist',
-        element: <Wishlist />,
-        loader: getAllBooks
+        element: <Wishlist />
       },
       {
         path: '/currently-reading',
-        element: <CurrentlyReading />,
-        loader: getAllBooks
+        element: <CurrentlyReading />
       },
       {
         path: '/finished',
-        element: <Finished />,
-        loader: getAllBooks
+        element: <Finished />
       },
       {
         path: '/books/create',
