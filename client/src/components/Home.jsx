@@ -5,6 +5,8 @@ export default function Home() {
     <>
       <h1>bookshelf</h1>
       <Link to='/wishlist'>Wishlist</Link>
+      <Link to='/register'>Sign Up</Link>
+      <Link to='/login'>Login</Link>
     </>
     
   )
