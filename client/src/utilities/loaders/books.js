@@ -4,7 +4,7 @@ export async function getAllBooks() {
   return res.json()
 }
 
-export async function getSingleBokk(id) {
+export async function getSingleBook(id) {
   const res = await fetch(`/api/books/${id}`)
   console.log(res)
   return res.json()
