@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react"
 import { Form, useActionData, useLoaderData, useNavigate } from 'react-router-dom'
-import axios from "axios"
+import { getToken } from '../utilities/helpers/common'
 
 
 export default function CreateBook() {
   const genres = useLoaderData()
   const res = useActionData()
+  console.log(genres)
+  
   const navigate = useNavigate()
   const [errorMessage, setErrorMessage] = useState('')
 
-  useEffect(() => {
+  const token = getToken()
+  console.log("Token:", token)
+  
 
+  useEffect(() => {
+    console.log('res:', res)
     if (res?.status === 201) {
-      console.log('created successfully')
-      navigate(`/books/${res.data.id}`)
-    }
+      console.log('Book created successfully')
+      navigate('/wishlist')
+    } 
   }, [res, navigate])
 
   const [formData, setFormData] = useState({
@@ -42,26 +48,10 @@ export default function CreateBook() {
     }
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    try {
-      const response = await axios.post('/api/books/', formData)
-      if (response.status === 201) {
-        console.log('Book created successfully:', response.data)
-        navigate(`/books/${response.data.id}`)
-      } else {
-        console.error('Failed to create book:', response.data)
-        setErrorMessage('Failed to create book. Please try again.')
-      }
-    } catch (error) {
-      console.error('Error creating book:', error)
-      setErrorMessage('Failed to create book. Please try again.')
-    }
-  }
 
   return (
     <>
-      <Form method="post" className="createform" onSubmit={handleSubmit} >
+      <Form method="post" className="createform">
         <div className="formstlying">
 
           <label hidden htmlFor="title"></label>
