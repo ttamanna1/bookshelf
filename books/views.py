@@ -13,6 +13,10 @@ class BookListCreateView(OwnerListCreateView):
   serializer_class = BookSerializer
   permission_classes = [IsAuthenticatedOrReadOnly]
 
+  def create(self, request, *args, **kwargs):
+    request.data['status'] = 'wishlist'
+    return super().create(request, *args, **kwargs)
+
 # PATH: /records/:id
 # Method: GET, PUT, PATCH, DELETE
 class BookDetailView(RetrieveUpdateDestroyAPIView):
@@ -24,4 +28,8 @@ class BookDetailView(RetrieveUpdateDestroyAPIView):
       if self.request.method == 'PUT':
         return BookSerializer
       return PopulatedBookSerializer
+    
+    def update(self, request, *args, **kwargs):
+      request.data['status'] = 'wishlist'
+      return super().update(request, *args, **kwargs)
     
