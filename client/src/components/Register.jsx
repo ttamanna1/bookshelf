@@ -3,7 +3,6 @@ import { Form, useActionData, useNavigate, Link } from "react-router-dom"
 
 export default function Register() {
   const res = useActionData()
-  console.log(res)
   const navigate = useNavigate()
 
   useEffect(() => {

@@ -4,12 +4,14 @@ import { setToken } from '../utilities/helpers/common'
 
 export default function Login() {
   const res = useActionData()
-  console.log(res)
+  // console.log('res:', res)
   const navigate = useNavigate()
   
   useEffect(() => {
+    // console.log(res)
     if (res?.status === 200){
-      setToken(res.data.token)
+      // console.log(res.data.access)
+      setToken(res.data.access)
       navigate('/wishlist')
     }
   }, [res, navigate])
