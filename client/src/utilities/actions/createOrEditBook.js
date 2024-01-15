@@ -3,14 +3,6 @@ import { getToken } from '../helpers/common'
 
 export async function bookCreate(request){
   const data = await formToObj(request)
-  const token = getToken()
-  console.log("Token before request:", token)
-
-  if (!token) {
-    console.error("Token is missing.");
-    // Handle the missing token scenario
-    return
-  }
   return await axios.post('/api/books/', data, {
     validateStatus: () => true,
     headers:{
