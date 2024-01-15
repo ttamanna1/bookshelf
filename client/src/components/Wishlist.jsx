@@ -26,22 +26,32 @@ export default function Wishlist() {
 
   const handleMoveToCategory = async (bookId, newCategory) => {
     try {
+      setBooks((prevBooks) =>
+        prevBooks.map((book) =>
+          book.id === bookId ? { ...book, status: newCategory } : book
+        )
+      )
       await axios.put(`/api/books/${bookId}/`, { status: newCategory })
       console.log(`Book moved to ${newCategory}`)
-      setBooks((prevBooks) => prevBooks.filter((book) => book.id !== bookId))
+  
     } catch (error) {
       console.error(`Error moving to ${newCategory}: `, error)
+      setBooks((prevBooks) =>
+        prevBooks.map((book) =>
+          book.id === bookId ? { ...book, status: 'wishlist' } : book
+        )
+      )
     }
   }
 
   return (
     <div>
       <h1>Wishlist</h1>
-      <button>Add to wishlist</button>
+      {/* <button>Add to wishlist</button> */}
       <ul>
         {books.map((book) => (
           <li key={book.id}>
-            {book.title} by {book.author}
+            {book.image} 
             <button onClick={() => handleMoveToCategory(book.id, 'currently-reading')}>Move to Currently Reading</button>
             <button onClick={() => handleMoveToCategory(book.id, 'finished')}>Move to Finished</button>
           </li>
