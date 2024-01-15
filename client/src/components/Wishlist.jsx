@@ -1,10 +1,6 @@
 
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
-// import { getToken } from '../utilities/helpers/common'
-
-
 
 export default function Wishlist() {
 
@@ -19,6 +15,8 @@ export default function Wishlist() {
         if (!response.ok) {
           throw new Error('Failed to fetch wishlist data')
         }
+        const data = await response.json()
+        setBooks(data)
       } catch (error) {
         console.error('Error fetching wishlist:', error)
       }
@@ -39,7 +37,7 @@ export default function Wishlist() {
   return (
     <div>
       <h1>Wishlist</h1>
-      <Link to='/books/create'>Add to Wishlist</Link>
+      <button>Add to wishlist</button>
       <ul>
         {books.map((book) => (
           <li key={book.id}>
@@ -53,3 +51,4 @@ export default function Wishlist() {
   )
 
 }
+
