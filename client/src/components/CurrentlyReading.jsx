@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default function CurrentlyReading() {
 
@@ -47,15 +48,20 @@ export default function CurrentlyReading() {
   return (
     <div>
       <h1>Currently Reading</h1>
-      <ul>
-        {books.map((book) => (
-          <li key={book.id}>
-            {book.image} 
-            <button onClick={() => handleMoveToCategory(book.id, 'wishlist')}>Move to Wishlist</button>
-            <button onClick={() => handleMoveToCategory(book.id, 'finished')}>Move to Finished</button>
-          </li>
-        ))}
-      </ul>
+      {books.map(book => {
+          const { id, title, image } = book
+          return (
+            <div key={id}>
+              <Link to={`/books/${id}`} className="card-layout">
+                <div className="card" style={{width: '20rem'}}>
+                  <img className="card-img-top" src={image} alt={title} style={{height: '150px', objectFit: 'cover'}}/>
+                </div> 
+              </Link>
+              <button onClick={() => handleMoveToCategory(book.id, 'wishlist')}>Move to Wishlist</button>
+              <button onClick={() => handleMoveToCategory(book.id, 'finished')}>Move to Finished</button>
+            </div>
+          )
+        })}
     </div>
   )
 
