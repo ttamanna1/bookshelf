@@ -16,6 +16,12 @@ class Book(models.Model):
     related_name='owned_books',
     null=True
   )
+  STATUS_CHOICES = [
+    ('wishlist', 'Wishlist'),
+    ('currently-reading', 'Currently Reading'),
+    ('finished', 'Finished'),
+  ]
+  status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='wishlist')
 
   def __str__(self):
     return f'{self.title} ({self.publication_year}) - Author: {self.author}'
