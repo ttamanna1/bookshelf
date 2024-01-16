@@ -57,6 +57,20 @@ export default function Finished() {
     }
   }
 
+  const handleDeleteBook = async (bookId) => {
+    try {
+      await axios.delete(`/api/books/${bookId}/`, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      })
+      setBooks((prevBooks) => prevBooks.filter((book) => book.id !== bookId))
+      console.log(`Book deleted`)
+    } catch (error) {
+      console.error(`Error deleting book: `, error)
+    }
+  }
+
   return (
     <div>
       <h1>Finished</h1>
@@ -71,6 +85,7 @@ export default function Finished() {
               </Link>
               <button onClick={() => handleMoveToCategory(book.id, 'wishlist')}>Move to Wishlist</button>
               <button onClick={() => handleMoveToCategory(book.id, 'currently-reading')}>Move to Currently Reading</button>
+              <button onClick={() => handleDeleteBook(book.id)}>Delete</button>
             </div>
           )
         })}

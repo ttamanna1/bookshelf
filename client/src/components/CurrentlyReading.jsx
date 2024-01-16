@@ -59,6 +59,20 @@ export default function CurrentlyReading() {
     }
   }
 
+  const handleDeleteBook = async (bookId) => {
+    try {
+      await axios.delete(`/api/books/${bookId}/`, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      })
+      setBooks((prevBooks) => prevBooks.filter((book) => book.id !== bookId))
+      console.log(`Book deleted`)
+    } catch (error) {
+      console.error(`Error deleting book: `, error)
+    }
+  }
+
   return (
     <div>
       <h1>Currently Reading</h1>
@@ -73,6 +87,7 @@ export default function CurrentlyReading() {
               </Link>
               <button onClick={() => handleMoveToCategory(book.id, 'wishlist')}>Move to Wishlist</button>
               <button onClick={() => handleMoveToCategory(book.id, 'finished')}>Move to Finished</button>
+              <button onClick={() => handleDeleteBook(book.id)}>Delete</button>
             </div>
           )
         })}
