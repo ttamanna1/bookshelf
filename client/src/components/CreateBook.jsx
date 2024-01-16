@@ -1,29 +1,13 @@
-import { useEffect, useState } from "react"
-import { Form, useActionData, useLoaderData, useNavigate } from 'react-router-dom'
-import Select from 'react-select'
-
-
+import { useState } from "react"
+import { useLoaderData, useNavigate } from 'react-router-dom'
+import { getToken } from "../utilities/helpers/common"
+import axios from "axios"
 
 
 export default function CreateBook() {
   const genres = useLoaderData()
-  const res = useActionData()
-  
   const navigate = useNavigate()
-  const [errorMessage, setErrorMessage] = useState('')
-  // const [genre, setGenre] = useState([])
-  
-
-  const options = genres.map( genre=> ({ 'value': genre.id, 'label': genre.name}) )
-  
-
-  useEffect(() => {
-    // console.log('res:', res)
-    if (res?.status === 201) {
-      console.log('Book created successfully')
-      navigate('/wishlist')
-    } 
-  }, [res, navigate])
+  const [errorMessage, setErrorMessage] = useState('') 
 
   const [formData, setFormData] = useState({
     title: '',
@@ -33,12 +17,8 @@ export default function CreateBook() {
     genres: [],
   })
 
-
-  
-
   function handleChange(e) {
     const { name, value } = e.target
-
     // Check if the entered value is a valid positive number
     if (name === 'publication_year' && (isNaN(value) || parseInt(value) < 0)) {
       // If not a valid positive number, set it to 0
@@ -52,25 +32,38 @@ export default function CreateBook() {
     }
   }
 
-  // function handleGenres(e) {
-  //   const { name, value } = e.target
-    
-    
-  //   setGenre([...genre, e.target.value])
-  //   console.log(genre)
-  
-  
-  //   setFormData({ ...formData, name: value })
-  //   console.log(value)
-  // }
+  function handleGenres(e) {
+    const selectedOptions = e.target.selectedOptions
+    const selectedGenreIds = Array.from(selectedOptions, option => parseInt(option.value, 10))
+    setFormData({ ...formData, genres: selectedGenreIds })
+    console.log('-->', selectedGenreIds)
+  }
 
-
-  
-
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await axios.post('/api/books/', formData, {
+        validateStatus: () => true,
+        headers:{
+          Authorization:`Bearer ${getToken()}`
+        }
+      })
+      if (res.status === 201) {
+        console.log('Book added successfully')
+        const bookId = res.data.id
+        navigate(`/books/${bookId}`)
+      } else {
+        console.error('Error adding book:', res.data)
+      }
+    } catch (error) {
+      console.error('Error adding book:', error)
+      setErrorMessage('Oops! An error occurred while adding the book.')
+    }   
+  }
 
   return (
     <>
-      <Form method="post" className="createform">
+      <form method="post" className="createform" onSubmit={handleSubmit}>
         <div className="formstlying">
 
           <label hidden htmlFor="title"></label>
@@ -86,15 +79,14 @@ export default function CreateBook() {
           <input className="" type="text" name="image" placeholder='Image' onChange={handleChange} value={formData.image} /><br />
 
           <label hidden htmlFor="genres"></label>
-          <Select name='genres' options={options} isMulti defaultValue={[1, 3]}/>
-          {/* <select className="" name="genres" onChange={handleGenres} multiple>
-            <option value=''>Select Genre</option>
+          <select className="" name="genres" value={formData.genres} onChange={handleGenres} multiple>
+            <option value='' disabled>Select Genre</option>
             {genres.map((genre) => (
               <option key={genre.id} value={genre.id}>
                 {genre.name}
               </option>
             ))}
-          </select><br /><br /> */}
+          </select><br /><br />
 
           <div className="row">
             <div className="col-md-8">
@@ -104,12 +96,10 @@ export default function CreateBook() {
             </div>
           </div><br />
 
-          {res && <p className="dangerincreate">{res.data.message}</p>}
           {errorMessage && <p className="error-message">{errorMessage}</p>}
         </div>
 
-      </Form>
+      </form>
     </>
-
   )
 }
