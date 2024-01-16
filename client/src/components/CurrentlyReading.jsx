@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { getToken } from '../utilities/helpers/common'
 
 export default function CurrentlyReading() {
@@ -9,6 +9,7 @@ export default function CurrentlyReading() {
   //! State
   const [books, setBooks] = useState([])
   const [update, setUpdate] = useState(false)
+  const navigate = useNavigate()
 
   //! Effects
   useEffect(() => {
@@ -47,6 +48,7 @@ export default function CurrentlyReading() {
       })
       console.log(`Book moved to ${newCategory}`)
       setUpdate(!update)
+      navigate(`/${newCategory}`)
     } catch (error) {
       console.error(`Error moving to ${newCategory}: `, error)
       setBooks((prevBooks) =>
