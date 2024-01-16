@@ -85,6 +85,7 @@ export default function Wishlist() {
               </Link>
               <button onClick={() => handleMoveToCategory(book.id, 'currently-reading')}>Move to Currently Reading</button>
               <button onClick={() => handleMoveToCategory(book.id, 'finished')}>Move to Finished</button>
+              <Link to={`/books/${id}/edit`} className="edit-link">Edit</Link>
               <button onClick={() => handleDeleteBook(book.id)}>Delete</button>
             </div>
           )

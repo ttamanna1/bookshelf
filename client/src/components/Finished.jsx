@@ -85,6 +85,7 @@ export default function Finished() {
               </Link>
               <button onClick={() => handleMoveToCategory(book.id, 'wishlist')}>Move to Wishlist</button>
               <button onClick={() => handleMoveToCategory(book.id, 'currently-reading')}>Move to Currently Reading</button>
+              <Link to={`/books/${id}/edit`} className="edit-link">Edit</Link>
               <button onClick={() => handleDeleteBook(book.id)}>Delete</button>
             </div>
           )
