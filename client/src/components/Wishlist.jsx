@@ -74,6 +74,7 @@ export default function Wishlist() {
   return (
     <div>
       <h1>Wishlist</h1>
+      <Link to={'/books/create'} className="edit-link">Add To Wishlist</Link>
       {books.map(book => {
           const { id, title, image } = book
           return (

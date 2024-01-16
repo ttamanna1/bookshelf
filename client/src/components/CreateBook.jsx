@@ -62,6 +62,7 @@ export default function CreateBook() {
 
   return (
     <>
+      <h1>Create Entry</h1>
       <form method="POST" className="createform" onSubmit={handleSubmit}>
         <div className="formstlying">
 
