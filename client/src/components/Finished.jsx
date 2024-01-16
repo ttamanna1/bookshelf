@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { getToken } from '../utilities/helpers/common'
 
 export default function Finished() {
 
@@ -12,7 +13,11 @@ export default function Finished() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/books/?status=finished')
+        const response = await fetch('/api/books/?status=finished', {
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
+        })
         if (!response.ok) {
           throw new Error('Failed to fetch finished data')
         }
@@ -32,7 +37,11 @@ export default function Finished() {
           book.id === bookId ? { ...book, status: newCategory } : book
         )
       )
-      await axios.put(`/api/books/${bookId}/`, { status: newCategory })
+      await axios.patch(`/api/books/${bookId}/`, { status: newCategory }, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      })
       console.log(`Book moved to ${newCategory}`)
   
     } catch (error) {

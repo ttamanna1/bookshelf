@@ -37,7 +37,11 @@ export default function Wishlist() {
           book.id === bookId ? { ...book, status: newCategory } : book
         )
       )
-      await axios.put(`/api/books/${bookId}/`, { status: newCategory })
+      await axios.patch(`/api/books/${bookId}/`, { status: newCategory }, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      })
       console.log(`Book moved to ${newCategory}`)
   
     } catch (error) {
