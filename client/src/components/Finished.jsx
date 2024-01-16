@@ -43,7 +43,7 @@ export default function Finished() {
         },
       })
       console.log(`Book moved to ${newCategory}`)
-  
+      window.location.reload()
     } catch (error) {
       console.error(`Error moving to ${newCategory}: `, error)
       setBooks((prevBooks) =>
