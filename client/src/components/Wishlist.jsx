@@ -45,6 +45,16 @@ export default function Wishlist() {
     }
   }
 
+  // const handleDeleteBook = async (bookId) => {
+  //   try {
+  //     await axios.delete(`/api/books/${bookId}/`)
+  //     setBooks((prevBooks) => prevBooks.filter((book) => book.id !== bookId))
+  //     console.log(`Book deleted`)
+  //   } catch (error) {
+  //     console.error(`Error deleting book: `, error)
+  //   }
+  // }
+
   return (
     <div>
       <h1>Wishlist</h1>
