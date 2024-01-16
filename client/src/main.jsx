@@ -20,9 +20,9 @@ import Register from './components/Register'
 import Login from './components/Login'
 
 // Loaders
-import { getAllBooks, getBookAndGenres, getGenres, getSingleBook } from './utilities/loaders/books'
+import { getAllBooks, getBookAndGenres, getGenres } from './utilities/loaders/books'
 import { registerUser, loginUser } from './utilities/actions/auth'
-import { bookCreate, bookEdit } from './utilities/actions/createOrEditBook'
+import { bookCreate } from './utilities/actions/createOrEditBook'
 
 const router = createBrowserRouter([
   {
@@ -65,8 +65,7 @@ const router = createBrowserRouter([
       {
         path: '/books/:bookId/edit',
         element: <EditBook />,
-        action: async ({ request, params }) => bookEdit(request, params.bookId),
-        loader: async ({ params }) => getSingleBook(params.bookId)
+        loader: getGenres
       },
       {
         path: '/register',

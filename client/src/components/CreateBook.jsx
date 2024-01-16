@@ -3,7 +3,6 @@ import { useLoaderData, useNavigate } from 'react-router-dom'
 import { getToken } from "../utilities/helpers/common"
 import axios from "axios"
 
-
 export default function CreateBook() {
   const genres = useLoaderData()
   const navigate = useNavigate()
@@ -63,7 +62,7 @@ export default function CreateBook() {
 
   return (
     <>
-      <form method="post" className="createform" onSubmit={handleSubmit}>
+      <form method="POST" className="createform" onSubmit={handleSubmit}>
         <div className="formstlying">
 
           <label hidden htmlFor="title"></label>
