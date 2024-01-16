@@ -7,7 +7,8 @@ import { getToken } from '../utilities/helpers/common'
 export default function CurrentlyReading() {
 
   //! State
-  const [books, setBooks] = useState( [])
+  const [books, setBooks] = useState([])
+  const [update, setUpdate] = useState(false)
 
   //! Effects
   useEffect(() => {
@@ -28,22 +29,24 @@ export default function CurrentlyReading() {
       }
     }
     fetchData()
-  }, [])
+  }, [update])
 
   const handleMoveToCategory = async (bookId, newCategory) => {
     try {
+      console.log('Before state update:', books);
       setBooks((prevBooks) =>
         prevBooks.map((book) =>
           book.id === bookId ? { ...book, status: newCategory } : book
         )
       )
+      console.log('After state update:', books);
       await axios.patch(`/api/books/${bookId}/`, { status: newCategory }, {
         headers: {
           Authorization: `Bearer ${getToken()}`,
         },
       })
       console.log(`Book moved to ${newCategory}`)
-      window.location.reload()
+      setUpdate(!update)
     } catch (error) {
       console.error(`Error moving to ${newCategory}: `, error)
       setBooks((prevBooks) =>

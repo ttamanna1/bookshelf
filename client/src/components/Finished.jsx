@@ -7,7 +7,8 @@ import { getToken } from '../utilities/helpers/common'
 export default function Finished() {
 
   //! State
-  const [books, setBooks] = useState( [])
+  const [books, setBooks] = useState([])
+  const [update, setUpdate] = useState(false)
 
   //! Effects
   useEffect(() => {
@@ -28,7 +29,7 @@ export default function Finished() {
       }
     }
     fetchData()
-  }, [])
+  }, [update])
 
   const handleMoveToCategory = async (bookId, newCategory) => {
     try {
@@ -43,7 +44,7 @@ export default function Finished() {
         },
       })
       console.log(`Book moved to ${newCategory}`)
-      window.location.reload()
+      setUpdate(!update)
     } catch (error) {
       console.error(`Error moving to ${newCategory}: `, error)
       setBooks((prevBooks) =>
