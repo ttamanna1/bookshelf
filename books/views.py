@@ -1,5 +1,5 @@
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated
 from .models import Book
 from .serializers.common import BookSerializer
 from .serializers.populated import PopulatedBookSerializer
@@ -10,22 +10,17 @@ from lib.permissions import IsOwnerOrReadOnly
 # Method: GET, POST
 class BookListCreateView(OwnerListCreateView):
   serializer_class = BookSerializer
-  permission_classes = [IsAuthenticatedOrReadOnly]
+  permission_classes = [IsAuthenticated]
 
   def get_queryset(self):
-    status = self.request.query_params.get('status', None)
-    
+    status = self.request.query_params.get('status', None)  
     if status:
         # If status is provided, filter by status
-        return Book.objects.filter(status=status)
+        return Book.objects.filter(status=status, owner=self.request.user)
     else:
         # If no status is provided, return all books
-        return Book.objects.all()
+        return Book.objects.filter(owner=self.request.user)
 
-  # def create(self, request, *args, **kwargs):
-  #   print('Received data in create:', request.data)
-  #   request.data['status'] = 'wishlist'
-  #   return super().create(request, *args, **kwargs)
   def perform_create(self, serializer):
     # Default to 'wishlist' if 'status' is not provided in the request
     status_value = self.request.data.get('status', 'wishlist')
@@ -50,6 +45,5 @@ class BookDetailView(RetrieveUpdateDestroyAPIView):
     else:
         # If 'status' is not present, leave it unchanged
         request.data['status'] = self.get_object().status
-
     return super().update(request, *args, **kwargs)
       

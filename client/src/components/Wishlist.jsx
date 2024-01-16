@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { getToken } from '../utilities/helpers/common'
 
 export default function Wishlist() {
 
@@ -12,7 +13,11 @@ export default function Wishlist() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/books/?status=wishlist')
+        const response = await fetch('/api/books/?status=wishlist', {
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
+        })
         if (!response.ok) {
           throw new Error('Failed to fetch wishlist data')
         }
