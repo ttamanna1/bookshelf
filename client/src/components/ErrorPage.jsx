@@ -10,7 +10,7 @@ export default function ErrorPage() {
   return (
     <>
       <NavBar />
-      <div id="error-page">
+      <div className="error-page">
         <p>Sorry, an unexpected error has occurred!</p>
       </div>
       <Footer />
