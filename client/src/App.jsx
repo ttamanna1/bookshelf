@@ -31,7 +31,7 @@ function App() {
             </div>
           }
         </main>
-        <Footer theme={theme} setTheme={setTheme}/>
+        <Footer />
       </div>
     </>
   )

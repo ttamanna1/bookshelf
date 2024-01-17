@@ -30,7 +30,7 @@ export default function Nav({ theme, setTheme }) {
 
         { activeUser() ?
           <> 
-            <img src={theme === 'light' ? logoLight : logoDark} alt='' className='logo'/>
+            <img src={theme === 'light' ? logoLight : logoDark} alt='bookshelf' className='logo'/>
             <ul>
               <li><Link to="/wishlist" className='links'>Wishlist</Link></li>
               <li><Link to="/currently-reading" className='links'>Currently Reading</Link></li>
@@ -42,7 +42,7 @@ export default function Nav({ theme, setTheme }) {
           </>
           :
           <> 
-            <img src={theme === 'light' ? logoLight : logoDark} alt='' className='logo'/>  
+            <img src={theme === 'light' ? logoLight : logoDark} alt='bookshelf' className='logo'/>  
             <img onClick={toggleMode} src={theme === 'light' ? toggleLight : toggleDark} alt='' className='toggle-icon'/>        
           </>
         }
