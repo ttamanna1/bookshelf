@@ -27,6 +27,10 @@
     cursor: pointer;
   }
 
+  ul li:hover {
+    font-size: 22px;
+  }
+
   .links, .links:visited, .links:active {
     color: inherit;
     text-decoration: none;
