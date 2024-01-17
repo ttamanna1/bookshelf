@@ -76,6 +76,7 @@ export default function CurrentlyReading() {
   return (
     <div>
       <h1>Currently Reading</h1>
+      <Link to={'/books/create'} className="edit-link">Add To Currently Reading</Link>
       {books.map(book => {
           const { id, title, image } = book
           return (

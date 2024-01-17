@@ -74,6 +74,7 @@ export default function Finished() {
   return (
     <div>
       <h1>Finished</h1>
+      <Link to={'/books/create'} className="edit-link">Add To Finished</Link>
       {books.map(book => {
           const { id, title, image } = book
           return (
