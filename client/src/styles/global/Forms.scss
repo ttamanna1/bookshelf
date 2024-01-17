@@ -1,0 +1,11 @@
+.field {
+  padding: 7px 20px;
+  background: #F6F2F6;
+  outline: 0;
+}
+
+.field::placeholder {
+  color: #58545B;
+  text-align: center;
+}
+

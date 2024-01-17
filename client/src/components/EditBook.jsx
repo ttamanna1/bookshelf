@@ -87,19 +87,19 @@ export default function EditBook() {
         <div className="formstlying">
 
           <label hidden htmlFor="title"></label>
-          <input className="createtitle" type="text" name="title" placeholder='Title' onChange={handleChange} value={formData.title} /><br /><br />
+          <input className="field" type="text" name="title" placeholder='Title' onChange={handleChange} value={formData.title} /><br /><br />
 
           <label hidden htmlFor="author"></label>
-          <input className="" type="text" name="author" placeholder='Author' onChange={handleChange} value={formData.author}></input><br /><br />
+          <input className="field" type="text" name="author" placeholder='Author' onChange={handleChange} value={formData.author}></input><br /><br />
 
           <label hidden htmlFor="publication_year"></label>
-          <input className="" type="number" name="publication_year" placeholder='Publication Year' onChange={handleChange} value={formData.publication_year} /><br /><br />
+          <input className="field" type="number" name="publication_year" placeholder='Publication Year' onChange={handleChange} value={formData.publication_year} /><br /><br />
 
           <label hidden htmlFor="image"></label>
-          <input className="" type="text" name="image" placeholder='Image URL' onChange={handleChange} value={formData.image} /><br /><br />
+          <input className="field" type="text" name="image" placeholder='Image URL' onChange={handleChange} value={formData.image} /><br /><br />
 
           <label hidden htmlFor="status"></label>
-          <select className="" name="status" value={formData.status} onChange={handleChange}>
+          <select className="status-field" name="status" value={formData.status} onChange={handleChange}>
             <option value='' disabled>Select Category</option>
             <option value="wishlist">Wishlist</option>
             <option value="currently-reading">Currently Reading</option>
@@ -120,7 +120,7 @@ export default function EditBook() {
             <div className="col-md-8">
             </div>
             <div className="col-md-4 d-flex align-items-center justify-content-end">
-              <button className="btn btn-primary createbtn" type="submit">Edit</button>
+              <button className="button" type="submit">Edit</button>
             </div>
           </div><br />
 
