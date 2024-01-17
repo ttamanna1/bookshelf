@@ -87,16 +87,24 @@ export default function EditBook() {
         <div className="formstlying">
 
           <label hidden htmlFor="title"></label>
-          <input className="createtitle" type="text" name="title" placeholder='Title' onChange={handleChange} value={formData.title} /><br />
+          <input className="createtitle" type="text" name="title" placeholder='Title' onChange={handleChange} value={formData.title} /><br /><br />
 
           <label hidden htmlFor="author"></label>
-          <input className="" type="text" name="author" placeholder='Author' onChange={handleChange} value={formData.author}></input><br />
+          <input className="" type="text" name="author" placeholder='Author' onChange={handleChange} value={formData.author}></input><br /><br />
 
           <label hidden htmlFor="publication_year"></label>
-          <input className="" type="number" name="publication_year" placeholder='Publication Year' onChange={handleChange} value={formData.publication_year} /><br />
+          <input className="" type="number" name="publication_year" placeholder='Publication Year' onChange={handleChange} value={formData.publication_year} /><br /><br />
 
           <label hidden htmlFor="image"></label>
-          <input className="" type="text" name="image" placeholder='Image URL' onChange={handleChange} value={formData.image} /><br />
+          <input className="" type="text" name="image" placeholder='Image URL' onChange={handleChange} value={formData.image} /><br /><br />
+
+          <label hidden htmlFor="status"></label>
+          <select className="" name="status" value={formData.status} onChange={handleChange}>
+            <option value='' disabled>Select Category</option>
+            <option value="wishlist">Wishlist</option>
+            <option value="currently-reading">Currently Reading</option>
+            <option value="finished">Finished</option>
+          </select><br /><br />
 
           <label hidden htmlFor="genres"></label>
           <select className="" name="genres" value={formData.genres} onChange={handleGenres} multiple>
