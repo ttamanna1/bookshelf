@@ -1,28 +1,38 @@
-import NavBar from './components/NavBar'
+import Nav from './components/Nav'
 import Footer from './components/Footer'
 import { Outlet, useNavigation } from 'react-router-dom'
 
 import Spinner from 'react-bootstrap/Spinner'
+import { useEffect, useState } from 'react'
 
 
 function App() {
   
   const navigation = useNavigation()  
 
+  const currentTheme = localStorage.getItem('currentTheme')
+  const [ theme, setTheme ] = useState(currentTheme ? currentTheme : 'light')
+
+  useEffect(() => {
+    localStorage.setItem('currentTheme', theme)
+  }, [theme])
+
   return (
     <>
-      <NavBar />
-      <main>
-        {
-          navigation.state === 'idle' ?
-          <Outlet />
-          :
-          <div className="centred">
-            <Spinner animation='border' />
-          </div>
-        }
-      </main>
-      <Footer />
+      <div className={`container ${theme}`}>
+        <Nav theme={theme} setTheme={setTheme}/>
+        <main>
+          {
+            navigation.state === 'idle' ?
+            <Outlet />
+            :
+            <div className="centred">
+              <Spinner animation='border' />
+            </div>
+          }
+        </main>
+        <Footer />
+      </div>
     </>
   )
 }

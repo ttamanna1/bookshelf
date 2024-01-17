@@ -1,0 +1,50 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #F6F2F6;
+  color: #1C252C;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 100px;
+  transition: 0.5s;
+
+  .logo {
+    width: 150px;
+  }
+
+  ul {
+    flex: 1;
+    list-style: none;
+    text-align: center;
+  }
+
+  ul li {
+    display: inline-block;
+    margin: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .links, .links:visited, .links:active {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .logout {
+    cursor: pointer;
+  }
+
+  .toggle-icon {
+    width: 30px;
+    cursor: pointer;
+  }
+}
+
+.dark .navbar {
+  background: #1C252C;
+  color: #F6F2F6;
+
+  
+}
