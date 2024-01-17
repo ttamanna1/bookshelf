@@ -76,7 +76,7 @@ export default function CurrentlyReading() {
   return (
     <div>
       <h1>Currently Reading</h1>
-      <Link to={'/books/create'} className="edit-link">Add To Currently Reading</Link>
+      <Link to={'/books/create'} className="button">Add To Currently Reading</Link>
       {books.map(book => {
           const { id, title, image } = book
           return (
@@ -86,10 +86,10 @@ export default function CurrentlyReading() {
                   <img className="card-img-top" src={image} alt={title} style={{height: '150px', objectFit: 'cover'}}/>
                 </div> 
               </Link>
-              <button onClick={() => handleMoveToCategory(book.id, 'wishlist')}>Move to Wishlist</button>
-              <button onClick={() => handleMoveToCategory(book.id, 'finished')}>Move to Finished</button>
-              <Link to={`/books/${id}/edit`} className="edit-link">Edit</Link>
-              <button onClick={() => handleDeleteBook(book.id)}>Delete</button>
+              <button onClick={() => handleMoveToCategory(book.id, 'wishlist')} className='button'>Move to Wishlist</button>
+              <button onClick={() => handleMoveToCategory(book.id, 'finished')} className='button'>Move to Finished</button>
+              <Link to={`/books/${id}/edit`} className="button">Edit</Link>
+              <button onClick={() => handleDeleteBook(book.id)} className='button'>Delete</button>
             </div>
           )
         })}

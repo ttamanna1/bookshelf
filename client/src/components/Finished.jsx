@@ -74,7 +74,7 @@ export default function Finished() {
   return (
     <div>
       <h1>Finished</h1>
-      <Link to={'/books/create'} className="edit-link">Add To Finished</Link>
+      <Link to={'/books/create'} className="button">Add To Finished</Link>
       {books.map(book => {
           const { id, title, image } = book
           return (
@@ -84,10 +84,10 @@ export default function Finished() {
                   <img className="card-img-top" src={image} alt={title} style={{height: '150px', objectFit: 'cover'}}/>
                 </div> 
               </Link>
-              <button onClick={() => handleMoveToCategory(book.id, 'wishlist')}>Move to Wishlist</button>
-              <button onClick={() => handleMoveToCategory(book.id, 'currently-reading')}>Move to Currently Reading</button>
-              <Link to={`/books/${id}/edit`} className="edit-link">Edit</Link>
-              <button onClick={() => handleDeleteBook(book.id)}>Delete</button>
+              <button onClick={() => handleMoveToCategory(book.id, 'wishlist')} className='button'>Move to Wishlist</button>
+              <button onClick={() => handleMoveToCategory(book.id, 'currently-reading')} className='button'>Move to Currently Reading</button>
+              <Link to={`/books/${id}/edit`} className="button">Edit</Link>
+              <button onClick={() => handleDeleteBook(book.id)} className='button'>Delete</button>
             </div>
           )
         })}

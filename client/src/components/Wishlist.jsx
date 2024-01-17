@@ -74,7 +74,7 @@ export default function Wishlist() {
   return (
     <div>
       <h1>Wishlist</h1>
-      <Link to={'/books/create'} className="edit-link">Add To Wishlist</Link>
+      <Link to={'/books/create'} className="button">Add To Wishlist</Link>
       {books.map(book => {
           const { id, title, image } = book
           return (
@@ -84,10 +84,10 @@ export default function Wishlist() {
                   <img className="card-img-top" src={image} alt={title} style={{height: '150px', objectFit: 'cover'}}/>
                 </div> 
               </Link>
-              <button onClick={() => handleMoveToCategory(book.id, 'currently-reading')}>Move to Currently Reading</button>
-              <button onClick={() => handleMoveToCategory(book.id, 'finished')}>Move to Finished</button>
-              <Link to={`/books/${id}/edit`} className="edit-link">Edit</Link>
-              <button onClick={() => handleDeleteBook(book.id)}>Delete</button>
+              <button onClick={() => handleMoveToCategory(book.id, 'currently-reading')} className='button'>Move to Currently Reading</button>
+              <button onClick={() => handleMoveToCategory(book.id, 'finished')} className='button'>Move to Finished</button>
+              <Link to={`/books/${id}/edit`} className="button">Edit</Link>
+              <button onClick={() => handleDeleteBook(book.id)} className='button'>Delete</button>
             </div>
           )
         })}
