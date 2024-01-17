@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className='footer'>
       <Link target='_blank' to='https://github.com/ttamanna1' className='links'>
-      <FontAwesomeIcon icon={faGithub} />Tamanna Khanum</Link>
+      <FontAwesomeIcon icon={faGithub} /> Tamanna</Link>
     </footer>
   )
 }

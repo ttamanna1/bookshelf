@@ -96,7 +96,7 @@ export default function EditBook() {
           <input className="" type="number" name="publication_year" placeholder='Publication Year' onChange={handleChange} value={formData.publication_year} /><br />
 
           <label hidden htmlFor="image"></label>
-          <input className="" type="text" name="image" placeholder='Image' onChange={handleChange} value={formData.image} /><br />
+          <input className="" type="text" name="image" placeholder='Image URL' onChange={handleChange} value={formData.image} /><br />
 
           <label hidden htmlFor="genres"></label>
           <select className="" name="genres" value={formData.genres} onChange={handleGenres} multiple>
