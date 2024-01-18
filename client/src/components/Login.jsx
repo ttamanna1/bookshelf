@@ -19,11 +19,13 @@ export default function Login() {
   return (
     <>
       <Form className='login-form' method="POST">
+        <div className='border'>
         <input type="text" name="username" placeholder='Username' className='field'/><br/ ><br />
         <input type="password" name="password" placeholder="Password" className='field'/><br /><br />
         <button className='button' type="submit">Login</button><br /><br />
         {res && <p className='danger'>{res.data.message}</p>}
-        <p className='login'>Don&apos;t have an account?{'\u00a0'} <Link to="/register" className='button'>Sign up here</Link></p>
+        <p className='login'>Don&apos;t have an account?{'\u00a0'} <Link to="/register" className='button small'>Sign Up</Link></p>
+        </div>
       </Form>
     </>
   )
