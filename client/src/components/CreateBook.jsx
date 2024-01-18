@@ -62,47 +62,48 @@ export default function CreateBook() {
 
   return (
     <>
-      <h1>Create Entry</h1>
-      <form method="POST" className="createform" onSubmit={handleSubmit}>
-        <div className="formstlying">
+      <div className="page">
+        <h1>Create Entry</h1>
+          <form method="POST" className="form" onSubmit={handleSubmit}>
+            <div className="formstlying border">
 
-          <label hidden htmlFor="title"></label>
-          <input className="field" type="text" name="title" placeholder='Title' onChange={handleChange} value={formData.title} /><br /><br />
+              <label hidden htmlFor="title"></label>
+              <input className="field" type="text" name="title" placeholder='Title' onChange={handleChange} value={formData.title} /><br /><br />
 
-          <label hidden htmlFor="author"></label>
-          <input className="field" type="text" name="author" placeholder='Author' onChange={handleChange} value={formData.author}></input><br /><br />
+              <label hidden htmlFor="author"></label>
+              <input className="field" type="text" name="author" placeholder='Author' onChange={handleChange} value={formData.author}></input><br /><br />
 
-          <label hidden htmlFor="publication_year"></label>
-          <input className="field" type="number" name="publication_year" placeholder='Publication Year' onChange={handleChange} value={formData.publication_year} /><br /><br />
+              <label hidden htmlFor="publication_year"></label>
+              <input className="field" type="number" name="publication_year" placeholder='Publication Year' onChange={handleChange} value={formData.publication_year} /><br /><br />
 
-          <label hidden htmlFor="image"></label>
-          <input className="field" type="text" name="image" placeholder='Image URL' onChange={handleChange} value={formData.image} /><br /><br />
-          
-          <label hidden htmlFor="status"></label>
-          <select className="status-field" name="status" value={formData.status} onChange={handleChange}>
-            <option value='' disabled>Select Category</option>
-            <option value="wishlist">Wishlist</option>
-            <option value="currently-reading">Currently Reading</option>
-            <option value="finished">Finished</option>
-          </select><br /><br />
+              <label hidden htmlFor="image"></label>
+              <input className="field" type="text" name="image" placeholder='Image URL' onChange={handleChange} value={formData.image} /><br /><br />
+              
+              <label hidden htmlFor="status"></label>
+              <select className="status-field" name="status" value={formData.status} onChange={handleChange}>
+                <option value='' disabled>Select Category</option>
+                <option value="wishlist">Wishlist</option>
+                <option value="currently-reading">Currently Reading</option>
+                <option value="finished">Finished</option>
+              </select><br /><br />
 
-          <label hidden htmlFor="genres"></label>
-          <select className="multi-select" name="genres" value={formData.genres} onChange={handleGenres} multiple>
-            <option value='' disabled>Select Genres</option>
-            {genres.map((genre) => (
-              <option key={genre.id} value={genre.id} className="select">
-                {genre.name}
-              </option>
-            ))}
-          </select>
-          <p className="instructions">Hold down “Control”, or “Command” on a Mac, to select more than one.</p><br /><br />
-            
-          <button className="button" type="submit">Create</button><br />
+              <label hidden htmlFor="genres"></label>
+              <select className="multi-select" name="genres" value={formData.genres} onChange={handleGenres} multiple>
+                <option value='' disabled>Select Genres</option>
+                {genres.map((genre) => (
+                  <option key={genre.id} value={genre.id} className="select">
+                    {genre.name}
+                  </option>
+                ))}
+              </select>
+              <p className="instructions">Hold down “Control”, or “Command” on a Mac, to select more than one.</p><br /><br />
+                
+              <button className="button" type="submit">Create</button><br />
 
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
-        </div>
-
-      </form>
+              {errorMessage && <p className="error-message">{errorMessage}</p>}
+            </div>
+        </form>
+      </div>
     </>
   )
 }

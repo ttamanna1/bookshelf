@@ -10,7 +10,7 @@ export default function SingleBook() {
     <>
       <div className='single-book'>
         <h1>{book.title} ({book.publication_year})</h1>
-        <img src={book.image} alt={`Image of ${book.title}`}/>
+        <img src={book.image} alt={book.title}/>
         <h3>Author: {book.author}</h3>
         <h3>Genres: {book.genres.map((genre) => genre.name).join(', ')}</h3>
       </div>

@@ -83,8 +83,10 @@ export default function EditBook() {
 
   return (
     <>
-      <form method="POST" className="createform" onSubmit={handleSubmit}>
-        <div className="formstlying">
+      <div className="page">
+        <h1>Edit Entry</h1>
+        <form method="POST" className="form" onSubmit={handleSubmit}>
+        <div className="formstlying border">
 
           <label hidden htmlFor="title"></label>
           <input className="field" type="text" name="title" placeholder='Title' onChange={handleChange} value={formData.title} /><br /><br />
@@ -129,6 +131,7 @@ export default function EditBook() {
         </div>
 
       </form>
+      </div>
     </>
   )
 }
