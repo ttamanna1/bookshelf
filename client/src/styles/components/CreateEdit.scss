@@ -30,6 +30,10 @@
     align-items: center;
     justify-content: center;
     border-radius: 5px;
+
+    @media (max-width: 635px) {
+      width: 350px;
+    }
   }
 }
 
@@ -52,3 +56,4 @@
 .instructions {
   font-size: 13px;
 }
+

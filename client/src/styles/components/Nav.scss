@@ -10,6 +10,12 @@
   padding-right: 100px;
   transition: 0.5s;
 
+  .dropdown-btn {
+    font-size: 24px;
+    cursor: pointer;
+    display: block; 
+  }
+
   .logo {
     width: 150px;
   }
@@ -48,7 +54,28 @@
 
 .dark .navbar {
   background: #1C252C;
-  color: #F6F2F6;
+  color: #F6F2F6;  
+}
 
-  
+@media (max-width: 785px) {
+  .navbar {
+    padding-right: 25px;
+
+    .logo {
+      width: 100px;
+    }
+
+    ul li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    ul li:hover {
+      font-size: 15px;
+    }
+
+    
+  }
 }

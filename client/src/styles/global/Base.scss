@@ -26,6 +26,10 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+
+    @media (max-width: 635px) {
+      margin: 10px;
+    }
   }
 
   .button:hover {
@@ -42,11 +46,16 @@
   .medium {
     width: 200px;
     height: 30px;
+
+    @media (max-width: 635px) {
+      width: 150px;
+      font-size: 11px;
+    }
   }
 }
 
 main {
-  min-height: 100vh;
+  min-height: 80vh;
 }
 
 .container.dark {

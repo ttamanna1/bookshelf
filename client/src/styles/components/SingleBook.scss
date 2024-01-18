@@ -1,7 +1,7 @@
 .single-book {
-  // width: 400px; 
-  // height: 300px; 
-  width: 20rem;
+  width: 300px; 
+  height: 200px; 
+  // width: 20rem;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -14,8 +14,8 @@
   text-align: center;
 
   img {
-    width: 100%; 
-    max-width: 100%; 
-    height: auto; 
+    width: 200px; 
+    // max-width: 100%; 
+    // height: auto; 
   }
 }
