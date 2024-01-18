@@ -24,10 +24,10 @@ function App() {
         <main>
           {
             navigation.state === 'idle' ?
-            <Outlet theme={theme} setTheme={setTheme}/>
+            <Outlet />
             :
             <div className="centred">
-              <Spinner animation='border' theme={theme} setTheme={setTheme}/>
+              <Spinner animation='border' />
             </div>
           }
         </main>

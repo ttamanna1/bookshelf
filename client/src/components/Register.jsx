@@ -16,13 +16,15 @@ export default function Register() {
     <>
 
       <Form method="post" className="register-form" >
-        <input className="field" type="text" name="username" placeholder='Username' /><br /><br />
-        <input className="field" type="email" name="email" placeholder='Email address' /><br /><br />
-        <input className="field" type="password" name="password" placeholder='Password' /><br /><br />
+        <div className="border">
+        <input className="field" type="text" name="username" placeholder='Username' /><br />
+        <input className="field" type="email" name="email" placeholder='Email address' /><br />
+        <input className="field" type="password" name="password" placeholder='Password' /><br />
         <input className="field" type="password" name="password_confirmation" placeholder='Confirm password' /><br /><br />
         <button className="button" type="submit">Sign Up</button><br /><br />
-        <p className="register">Already have an account?{'\u00a0'} <Link to="/login"className='button'>Login</Link></p>
+        <p className="register">Already have an account?{'\u00a0'} <Link to="/login"className='button small'>Login</Link></p>
         {res && <p className="danger">{res.data.message}</p>}
+        </div>
       </Form>
     </>
   )
