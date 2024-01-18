@@ -16,10 +16,10 @@ class BookListCreateView(OwnerListCreateView):
     status = self.request.query_params.get('status', None)  
     if status:
         # If status is provided, filter by status
-        return Book.objects.filter(status=status, owner=self.request.user)
+        return Book.objects.prefetch_related('genres').filter(status=status, owner=self.request.user)
     else:
         # If no status is provided, return all books
-        return Book.objects.filter(owner=self.request.user)
+        return Book.objects.prefetch_related('genres').filter(owner=self.request.user)
 
   def perform_create(self, serializer):
     # Default to 'wishlist' if 'status' is not provided in the request
@@ -29,7 +29,7 @@ class BookListCreateView(OwnerListCreateView):
 # PATH: /records/:id
 # Method: GET, PUT, PATCH, DELETE
 class BookDetailView(RetrieveUpdateDestroyAPIView):
-  queryset = Book.objects.all()
+  queryset = Book.objects.prefetch_related('genres').all()
   permission_classes = [IsOwnerOrReadOnly]
 
   def get_serializer_class(self):
