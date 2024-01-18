@@ -1,13 +1,11 @@
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import { Outlet, useNavigation } from 'react-router-dom'
-
 import Spinner from 'react-bootstrap/Spinner'
 import { useEffect, useState } from 'react'
 
 
-function App() {
-  
+function App() { 
   const navigation = useNavigation()  
 
   const currentTheme = localStorage.getItem('currentTheme')

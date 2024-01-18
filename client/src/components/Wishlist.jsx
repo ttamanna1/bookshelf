@@ -72,22 +72,24 @@ export default function Wishlist() {
   }
 
   return (
-    <div>
+    <div className='status-page'>
       <h1>Wishlist</h1>
       <Link to={'/books/create'} className="button">Add To Wishlist</Link>
       {books.map(book => {
           const { id, title, image } = book
           return (
-            <div key={id}>
-              <Link to={`/books/${id}`} className="card-layout">
-                <div className="card" style={{width: '20rem'}}>
-                  <img className="card-img-top" src={image} alt={title} style={{height: '150px', objectFit: 'cover'}}/>
-                </div> 
+            <div key={id} className='entry'>
+              <Link to={`/books/${id}`} className="entry-layout">
+                  <img className="entry-img" src={image} alt={title}/>
               </Link>
-              <button onClick={() => handleMoveToCategory(book.id, 'currently-reading')} className='button'>Move to Currently Reading</button>
-              <button onClick={() => handleMoveToCategory(book.id, 'finished')} className='button'>Move to Finished</button>
-              <Link to={`/books/${id}/edit`} className="button">Edit</Link>
-              <button onClick={() => handleDeleteBook(book.id)} className='button'>Delete</button>
+              <div className='move'>
+                <button onClick={() => handleMoveToCategory(book.id, 'currently-reading')} className='button medium'>Move to Currently Reading</button>
+                <button onClick={() => handleMoveToCategory(book.id, 'finished')} className='button medium'>Move to Finished</button>
+              </div>
+              <div className='move'>
+                <Link to={`/books/${id}/edit`} className="button medium edit">Edit</Link>
+                <button onClick={() => handleDeleteBook(book.id)} className='button medium delete'>Delete</button>
+              </div>
             </div>
           )
         })}

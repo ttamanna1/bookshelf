@@ -1,0 +1,43 @@
+.status-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+  
+    .entry-layout {
+      width: 20rem;
+      text-align: center;
+  
+      .entry-img {
+        height: 200px;
+        object-fit: cover;
+      }
+    }
+  
+    .move {
+      display: flex;
+    }
+
+    .edit:hover {
+      background: #385f38;
+    }
+
+    .delete:hover {
+      background: #a95959;
+
+    }
+  }
+}
+

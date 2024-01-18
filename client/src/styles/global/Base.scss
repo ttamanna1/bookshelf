@@ -38,6 +38,15 @@
     height: 25px;
     font-size: 12px;
   }
+
+  .medium {
+    width: 200px;
+    height: 30px;
+  }
+}
+
+main {
+  min-height: 100vh;
 }
 
 .container.dark {
@@ -56,6 +65,14 @@
 
   .border {
     border-color: #E1D5D9;
+  }
+
+  .edit:hover {
+    color: #E1D5D9;
+  }
+
+  .delete:hover {
+    color: #E1D5D9;
   }
 }
 
