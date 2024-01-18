@@ -107,14 +107,15 @@ export default function EditBook() {
           </select><br /><br />
 
           <label hidden htmlFor="genres"></label>
-          <select className="" name="genres" value={formData.genres} onChange={handleGenres} multiple>
-            <option value='' disabled>Select Genre</option>
+          <select className="multi-select" name="genres" value={formData.genres} onChange={handleGenres} multiple>
+            <option value='' disabled>Select Genres</option>
             {genres.map((genre) => (
-              <option key={genre.id} value={genre.id}>
+              <option key={genre.id} value={genre.id} className="select">
                 {genre.name}
               </option>
             ))}
-          </select><br /><br />
+          </select>
+          <p className="instructions">Hold down “Control”, or “Command” on a Mac, to select more than one.</p><br /><br />
 
           <div className="row">
             <div className="col-md-8">
