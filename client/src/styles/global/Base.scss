@@ -54,13 +54,13 @@
   }
 }
 
-main {
-  min-height: 80vh;
-}
-
 .container.dark {
   background: #58545B;
   color: #E1D5D9;
+
+  .single-book {
+    border-color: #E1D5D9;
+  }
 
   .button {
     border: solid 2px #E1D5D9;
@@ -77,11 +77,12 @@ main {
   }
 
   .edit:hover {
-    color: #E1D5D9;
+    color: #58545B;
   }
 
   .delete:hover {
     color: #E1D5D9;
+    background: #a95959;
   }
 }
 

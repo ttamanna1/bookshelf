@@ -20,6 +20,7 @@ export default function Nav({ theme, setTheme }) {
     navigate('/')
   }
 
+  // toggle light and dark theme
   const toggleMode = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light')
   }
@@ -27,7 +28,6 @@ export default function Nav({ theme, setTheme }) {
   return (
     <>
       <nav className='navbar'>
-
         { activeUser() ?
           <> 
             <img src={theme === 'light' ? logoLight : logoDark} alt='bookshelf' className='logo'/>

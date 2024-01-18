@@ -34,7 +34,7 @@
   }
 
   ul li:hover {
-    font-size: 22px;
+    font-size: 19px;
   }
 
   .links, .links:visited, .links:active {
@@ -57,7 +57,7 @@
   color: #F6F2F6;  
 }
 
-@media (max-width: 785px) {
+@media (max-width: 795px) {
   .navbar {
     padding-right: 25px;
 
@@ -75,7 +75,6 @@
     ul li:hover {
       font-size: 15px;
     }
-
     
   }
 }
