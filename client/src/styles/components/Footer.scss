@@ -1,18 +1,14 @@
 footer {
   width: 100%;
+  height: 70px;
   bottom: 0;
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-
-
+  margin-top: 10px;
+  
   .links, .links:visited, .links:active {
     color: inherit;
     text-decoration: none;
   }
-}
-
-.dark footer {
-  color: #F6F2F6;
 }
