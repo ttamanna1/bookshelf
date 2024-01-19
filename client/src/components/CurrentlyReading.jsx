@@ -34,13 +34,11 @@ export default function CurrentlyReading() {
 
   const handleMoveToCategory = async (bookId, newCategory) => {
     try {
-      console.log('Before state update:', books);
       setBooks((prevBooks) =>
         prevBooks.map((book) =>
           book.id === bookId ? { ...book, status: newCategory } : book
         )
       )
-      console.log('After state update:', books);
       await axios.patch(`/api/books/${bookId}/`, { status: newCategory }, {
         headers: {
           Authorization: `Bearer ${getToken()}`,
