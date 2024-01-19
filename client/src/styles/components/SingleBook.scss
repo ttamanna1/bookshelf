@@ -23,9 +23,7 @@
 }
 
 .move {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center(row);
   margin-top: 10px;
 
   .edit:hover {

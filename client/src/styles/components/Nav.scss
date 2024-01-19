@@ -66,15 +66,12 @@
     }
 
     ul li {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flex-center(row);
       font-size: 12px;
     }
 
     ul li:hover {
       font-size: 15px;
-    }
-    
+    }  
   }
 }

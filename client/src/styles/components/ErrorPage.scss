@@ -1,7 +1,5 @@
 .error-page, .error-message {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center(row);
   font-size: 30px;
   height: 80vh;
 }
