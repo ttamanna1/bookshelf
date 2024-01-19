@@ -19,7 +19,7 @@ import Login from './components/Login'
 
 // Loaders
 import { getBookAndGenres, getGenres } from './utilities/loaders/books'
-import { registerUser, loginUser } from './utilities/actions/auth'
+
 
 const router = createBrowserRouter([
   {
@@ -60,13 +60,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/register',
-        element: <Register />,
-        action: async ({ request }) => registerUser(request),
+        element: <Register />
       },
       {
         path: '/login',
-        element: <Login />,
-        action: async ({ request }) => loginUser(request)
+        element: <Login />
       }
     ]
   }
