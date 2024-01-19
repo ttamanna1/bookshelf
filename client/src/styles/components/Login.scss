@@ -13,10 +13,4 @@
   .login {
     @include flex-center(column);
   }
-
-  .danger{
-    color: $red;
-    width: 50%;
-    text-align: center;
-  }
 }
