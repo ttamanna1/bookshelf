@@ -6,6 +6,7 @@ export async function formToObj(request){
   return Object.fromEntries(formData.entries())
 }
 
+// saves the token to localStorage
 export function setToken(token){
   localStorage.setItem(tokenName, token)
 }
@@ -23,7 +24,7 @@ export function activeUser(){
   const token = getToken()
   if (!token) return null
 
-  // If token exists
+  // If token exists, split it at . and we want the payload which is in the middle at index 1
   const b64 = token.split('.')[1]
   const payload = JSON.parse(atob(b64))
   console.log(payload)

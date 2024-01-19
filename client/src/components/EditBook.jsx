@@ -20,15 +20,18 @@ export default function EditBook() {
   })
 
   useEffect(() => {
+    // retrieves data of book
     const getSingleBook = async () => {
       try {
         const res = await axios.get(`/api/books/${bookId}`)
         const bookData = res.data
+        // prepopulates data of book into fields
         setFormData({
           title: bookData.title,
           author: bookData.author,
           publication_year: bookData.publication_year,
           image: bookData.image,
+          status: bookData.status,
           genres: bookData.genres.map((genre) => genre.id),
         })
       } catch (error) {
@@ -53,6 +56,7 @@ export default function EditBook() {
     }
   }
 
+  // selected genres returns into an array of integers to the backend
   function handleGenres(e) {
     const selectedOptions = e.target.selectedOptions
     const selectedGenreIds = Array.from(selectedOptions, option => parseInt(option.value, 10))
@@ -60,6 +64,7 @@ export default function EditBook() {
     console.log('-->', selectedGenreIds)
   }
 
+  // updates book entry using put request
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {

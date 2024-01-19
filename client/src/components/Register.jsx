@@ -6,6 +6,7 @@ export default function Register() {
   const navigate = useNavigate()
 
   useEffect(() => {
+    // if successful registering user, navigate to login page
     if (res?.status === 201) {
       navigate('/login')
     }

@@ -8,7 +8,7 @@ export default function Login() {
   const navigate = useNavigate()
   
   useEffect(() => {
-    // console.log(res)
+    // if successful user login, navigate to wishlist page
     if (res?.status === 200){
       // console.log(res.data.access)
       setToken(res.data.access)

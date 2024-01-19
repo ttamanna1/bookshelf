@@ -2,13 +2,11 @@ import { useLoaderData, Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { getToken } from '../utilities/helpers/common'
 
-
-
-
 export default function SingleBook() {
   const { book } = useLoaderData()
   const navigate = useNavigate()
 
+  // deletes book
   const handleDeleteBook = async () => {
     try {
       await axios.delete(`/api/books/${book.id}/`, {

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import bookImg from '../assets/book-image.png'
 
-
 export default function Home() {
   return (
     <>

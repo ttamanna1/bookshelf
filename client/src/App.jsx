@@ -7,9 +7,11 @@ import { useEffect, useState } from 'react'
 function App() { 
   const navigation = useNavigation()  
 
+  // gets theme selected
   const currentTheme = localStorage.getItem('currentTheme')
   const [ theme, setTheme ] = useState(currentTheme ? currentTheme : 'light')
 
+  // saves theme to localStorage
   useEffect(() => {
     localStorage.setItem('currentTheme', theme)
   }, [theme])

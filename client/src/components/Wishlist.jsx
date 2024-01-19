@@ -12,6 +12,7 @@ export default function Wishlist() {
   const navigate = useNavigate()
 
   //! Effects
+  // retrieves data 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,6 +33,7 @@ export default function Wishlist() {
     fetchData()
   }, [update])
 
+  // moves book to slected category (status)
   const handleMoveToCategory = async (bookId, newCategory) => {
     try {
       setBooks((prevBooks) =>
@@ -39,6 +41,7 @@ export default function Wishlist() {
           book.id === bookId ? { ...book, status: newCategory } : book
         )
       )
+      // updates book status by using patch
       await axios.patch(`/api/books/${bookId}/`, { status: newCategory }, {
         headers: {
           Authorization: `Bearer ${getToken()}`,
@@ -57,6 +60,7 @@ export default function Wishlist() {
     }
   }
 
+  // deletes book
   const handleDeleteBook = async (bookId) => {
     try {
       await axios.delete(`/api/books/${bookId}/`, {

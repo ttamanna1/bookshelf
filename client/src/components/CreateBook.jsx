@@ -31,6 +31,7 @@ export default function CreateBook() {
     }
   }
 
+  // selected genres returns into an array of integers to the backend
   function handleGenres(e) {
     const selectedOptions = e.target.selectedOptions
     const selectedGenreIds = Array.from(selectedOptions, option => parseInt(option.value, 10))
@@ -38,6 +39,7 @@ export default function CreateBook() {
     console.log('-->', selectedGenreIds)
   }
 
+  // creates book entry using post request
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
