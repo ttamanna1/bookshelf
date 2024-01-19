@@ -8,17 +8,17 @@
 .container {
   width: 100vw;
   min-height: 100vh;
-  background: #E1D5D9;
-  color: #58545B;
+  background: $pink;
+  color: $grey;
   transition: 0.5s;
 
   .button {
     text-decoration: none;
     color: inherit;
-    background: #B7A7AE;
+    background: $lilac;
     text-align: center;
     font-size: 15px;
-    border: solid 2px #58545B;
+    border: solid 2px $grey;
     border-radius: 5px;
     width: 160px;
     height: 50px;
@@ -33,8 +33,8 @@
   }
 
   .button:hover {
-    background: #58545B;
-    color: #E1D5D9;
+    background: $grey;
+    color: $pink;
   }
 
   .small {
@@ -59,42 +59,39 @@ main {
 }
 
 .container.dark {
-  background: #58545B;
-  color: #E1D5D9;
+  background: $grey;
+  color: $pink;
 
   .single-book {
-    border-color: #E1D5D9;
+    border-color: $pink;
   }
 
   .button {
-    border: solid 2px #E1D5D9;
-    background: #58545B;
+    border: solid 2px $pink;
+    background: $grey;
   }
 
   .button:hover {
-    background: #E1D5D9;
-    color: #58545B;
+    background: $pink;
+    color: $grey;
   }
 
   .border {
-    border-color: #E1D5D9;
+    border-color: $pink;
   }
 
   .edit:hover {
-    color: #58545B;
+    color: $grey;
   }
 
   .delete:hover {
-    color: #E1D5D9;
+    color: $pink;
     background: #a95959;
   }
 }
 
 .centred {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flex-center(column);
   flex-grow: 1;
 }
 

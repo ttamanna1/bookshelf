@@ -1,0 +1,12 @@
+$black: #1C252C;
+$grey: #58545B;
+$lilac: #B7A7AE;
+$pink: #E1D5D9;
+$light: #F6F2F6;
+
+@mixin flex-center($direction) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}

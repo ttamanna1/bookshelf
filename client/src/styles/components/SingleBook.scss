@@ -3,7 +3,7 @@
   margin: 0 auto;
   box-sizing: border-box;
   text-align: center;
-  border: 2px solid #58545B;
+  border: 2px solid $grey;
   margin-top: 40px;
 
   h1 {
@@ -29,8 +29,8 @@
   margin-top: 10px;
 
   .edit:hover {
-    background: #E1D5D9;
-    color: #58545B;
+    background: $pink;
+    color: $grey;
   }
 
   .delete:hover {

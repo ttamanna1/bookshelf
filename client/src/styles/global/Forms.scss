@@ -1,13 +1,13 @@
 
 .field {
   padding: 7px 20px;
-  background: #F6F2F6;
+  background: $light;
   outline: 0;
   cursor: pointer;
 }
 
 .field::placeholder {
-  color: #58545B;
+  color: $grey;
   text-align: center;
 }
 

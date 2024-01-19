@@ -3,8 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #F6F2F6;
-  color: #58545B;
+  background: $light;
+  color: $grey;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right: 100px;
@@ -53,8 +53,8 @@
 }
 
 .dark .navbar {
-  background: #1C252C;
-  color: #F6F2F6;  
+  background: $black;
+  color: $light;  
 }
 
 @media (max-width: 795px) {
