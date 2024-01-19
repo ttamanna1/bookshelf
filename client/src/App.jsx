@@ -1,7 +1,6 @@
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import { Outlet, useNavigation } from 'react-router-dom'
-import Spinner from 'react-bootstrap/Spinner'
 import { useEffect, useState } from 'react'
 
 
@@ -25,7 +24,7 @@ function App() {
             <Outlet />
             :
             <div className="centred">
-              <Spinner animation='border' />
+              <p>Loading...</p>
             </div>
           }
         </main>

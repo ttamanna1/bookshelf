@@ -2,14 +2,12 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 // Styles
-// import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/main.scss'
 
 // Page Components
 import App from './App'
 import ErrorPage from './components/ErrorPage'
 import Home from './components/Home'
-import BookIndex from './components/BookIndex'
 import SingleBook from './components/SingleBook'
 import Wishlist from './components/Wishlist'
 import CurrentlyReading from './components/CurrentlyReading'
@@ -20,9 +18,8 @@ import Register from './components/Register'
 import Login from './components/Login'
 
 // Loaders
-import { getAllBooks, getBookAndGenres, getGenres } from './utilities/loaders/books'
+import { getBookAndGenres, getGenres } from './utilities/loaders/books'
 import { registerUser, loginUser } from './utilities/actions/auth'
-import { bookCreate } from './utilities/actions/createOrEditBook'
 
 const router = createBrowserRouter([
   {
@@ -33,11 +30,6 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />
-      },
-      {
-        path: '/books',
-        element: <BookIndex />,
-        loader: getAllBooks
       },
       {
         path: '/books/:bookId',
@@ -59,7 +51,6 @@ const router = createBrowserRouter([
       {
         path: '/books/create',
         element: <CreateBook />,
-        action: async ({ request }) => bookCreate(request),
         loader: getGenres
       },
       {
