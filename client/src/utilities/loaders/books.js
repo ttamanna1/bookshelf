@@ -5,13 +5,13 @@ export async function getAllBooks() {
 }
 
 export async function getGenres() {
-  const res = await fetch('/api/genres')
+  const res = await fetch('/api/genres/')
   console.log(res)
   return res.json()
 }
 
 export async function getSingleBook(id) {
-  const res = await fetch(`/api/books/${id}`)
+  const res = await fetch(`/api/books/${id}/`)
   console.log(res)
   return res.json()
 }
