@@ -23,7 +23,7 @@ export default function EditBook() {
     // retrieves data of book
     const getSingleBook = async () => {
       try {
-        const res = await axios.get(`/api/books/${bookId}`)
+        const res = await axios.get(`/api/books/${bookId}/`)
         const bookData = res.data
         // prepopulates data of book into fields
         setFormData({
